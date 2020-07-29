@@ -10,6 +10,12 @@ Nerd increasingly interested in architecting inexpensive cloud solutions for eve
 
 Ontario born Canadian currently in Calgary, Alberta. I enjoy making life easier for people, and it turns out knowing about computers comes in handy for that. I'm in the process of teaching myself the fundamentals I need to take this hobby and turn it into a career. 
 
+## Work
+
+Currently building web apps using Svelte frontend serving from a mix of AWS/EC2/Deno/Serverless, and enjoying the Typescript/VSCode world.  
+General proficiency with Photoshop/Office/Windows/AWS.
+Contact me if you can help me or need my help!
+
 <!--
 **6vx/6vx** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
