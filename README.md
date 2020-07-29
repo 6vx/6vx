@@ -1,5 +1,3 @@
-# About
-
 ## Now
 
 I'm in Calgary, focusing on my own projects and playing with a hairless dog. It's marvelous. 
