@@ -2,13 +2,9 @@
 
 I'm in Calgary, focusing on my own projects and playing with a hairless dog. It's marvelous. 
 
-## About in a sentence
+## About
 
-Nerd increasingly interested in architecting inexpensive cloud solutions for everyday tasks (ie eliminate human drudgery.) 
-
-## About in a paragraph
-
-Ontario born Canadian currently in Calgary, Alberta (and eventually on my way back to Seoul). I enjoy making life easier for people, and it turns out knowing about computers comes in handy for that. I'm in the process of teaching myself the fundamentals I need to take this hobby and turn it into a career. 
+Nerd increasingly interested in architecting inexpensive cloud solutions for everyday tasks (ie eliminate human drudgery.)  
 
 ## Work
 
