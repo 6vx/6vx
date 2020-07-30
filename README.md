@@ -8,7 +8,7 @@ Nerd increasingly interested in architecting inexpensive cloud solutions for eve
 
 ## About in a paragraph
 
-Ontario born Canadian currently in Calgary, Alberta. I enjoy making life easier for people, and it turns out knowing about computers comes in handy for that. I'm in the process of teaching myself the fundamentals I need to take this hobby and turn it into a career. 
+Ontario born Canadian currently in Calgary, Alberta (and eventually on my way back to Seoul). I enjoy making life easier for people, and it turns out knowing about computers comes in handy for that. I'm in the process of teaching myself the fundamentals I need to take this hobby and turn it into a career. 
 
 ## Work
 
