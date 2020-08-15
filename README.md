@@ -8,7 +8,7 @@ Nerd increasingly interested in architecting inexpensive cloud solutions for eve
 
 ## Work
 
-Currently building web apps using Svelte frontend serving from a mix of AWS/EC2/Deno/Serverless, and enjoying the Typescript/VSCode world.  
+Refusing to use anything but Typescript, currently using a Svelte front end and Deno back end, keeping as much of it static as possible.  
 General proficiency with Photoshop/Office/Windows/AWS.
 Contact me if you can help me or need my help!
 
