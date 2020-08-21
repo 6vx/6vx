@@ -1,7 +1,3 @@
-## Now
-
-I'm in Calgary, focusing on my own projects and playing with a hairless dog. It's marvelous. 
-
 ## About
 
 Nerd increasingly interested in architecting inexpensive cloud solutions for everyday tasks (ie eliminate human drudgery.)  
