@@ -9,7 +9,7 @@ I'm a word game nerd who loves running and jumping (so: Ultimate Frisbee and Vol
 Looking for work, preference to short term/flexible. 
 
 - Moderate experience: Web/HTML/CSS/JS/TS/Svelte/PWA/CICD/AWS/Git/Powershell/Firebase/PlayFab
-- Some experience: Node/Azure/Vue/Express/Bash/Android
+- Some experience: Azure/Vue/Node/Deno/Express/Bash/Android
 
 ## Help
 
