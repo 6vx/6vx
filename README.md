@@ -6,7 +6,7 @@ I'm a word game nerd (scrabble, crosswords, etc) who loves running and jumping (
 
 ## Hire
 
-Looking for work, preference to short term/flexible. 
+Looking for remote work, preference to short term/flexible. 
 
 - Moderate experience: Web/HTML/CSS/JS/TS/Svelte/PWA/CICD/AWS/Git/Powershell/Firebase/PlayFab
 - Some experience: Azure/Vue/Node/Deno/Express/Bash/Android
