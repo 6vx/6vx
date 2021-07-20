@@ -13,4 +13,4 @@ Looking for work, preference to short term/flexible.
 
 ## Help
 
-I'm happy to have some assistance making whatever bobble I'm working on. If something caught your eye, get in touch by email. 
+I'm happy to have some assistance with whatever bobble I'm working on. If something caught your eye, get in touch by email.
