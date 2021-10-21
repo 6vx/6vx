@@ -26,7 +26,10 @@ function handleRequest(request) {
   // Respond with JSON
   if (pathname.startsWith("/json")) {
     // Use stringify function to convert javascript object to JSON string.
-    const json = masterAlphabet;
+    const json = JSON.stringify({
+      message: "Hello from Deno Deploy",
+      other: masterAlphabet
+    });
 
     return new Response(json, {
       headers: {
