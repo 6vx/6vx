@@ -1,6 +1,28 @@
  export default [
-    {
-        "letter":"A",
-        "max":5
-    }
+     {"letter":"A","maxquantity":11,"baselevel":1},
+     {"baselevel":3,"letter":"B","maxquantity":3},
+     {"maxquantity":"3","baselevel":3,"letter":"C"},
+     {"maxquantity":6,"letter":"D","baselevel":3},
+     {"maxquantity":14,"baselevel":1,"letter":"E"},
+     {"maxquantity":3,"letter":"F","baselevel":4},
+     {"maxquantity":4,"baselevel":2,"letter":"G"},
+     {"letter":"H","baselevel":4,"maxquantity":3},
+     {"maxquantity":10,"letter":"I","baselevel":1},
+     {"letter":"J","maxquantity":2,"baselevel":9},
+     {"letter":"K","baselevel":7,"maxquantity":2},
+     {"letter":"L","maxquantity":5,"baselevel":1},
+     {"maxquantity":3,"baselevel":3,"letter":"M"},
+     {"letter":"N","maxquantity":7,"baselevel":1},
+     {"baselevel":1,"maxquantity":9,"letter":"O"},
+     {"maxquantity":3,"baselevel":3,"letter":"P"},
+     {"letter":"Q","baselevel":11,"maxquantity":2},
+     {"letter":"R","maxquantity":7,"baselevel":1},
+     {"letter":"S","maxquantity":6,"baselevel":1},
+     {"maxquantity":8,"letter":"T","baselevel":2},
+     {"baselevel":1,"letter":"U","maxquantity":5},
+     {"baselevel":5,"letter":"V","maxquantity":3},
+     {"baselevel":5,"maxquantity":2,"letter":"W"},
+     {"baselevel":10,"maxquantity":2,"letter":"X"},
+     {"letter":"Y","maxquantity":3,"baselevel":5},
+     {"maxquantity":2,"baselevel":11,"letter":"Z"}
 ]

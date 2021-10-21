@@ -1,6 +1,6 @@
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
 
-import masterAlphabet from './masterAlphabet'
+import masterAlphabet from 'https://github.com/6vx/6vx/blob/master/masterAlphabet.ts'
 
 function handleRequest(request) {
   const { pathname } = new URL(request.url);
