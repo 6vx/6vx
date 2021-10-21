@@ -38,6 +38,20 @@ function handleRequest(request) {
     });
   }
 
+  // Respond with Alphabet
+  if (pathname.startsWith("/alphabet")) {
+    // Use stringify function to convert javascript object to JSON string.
+    const json = JSON.stringify({
+      alphabet: masterAlphabet
+    });
+
+    return new Response(json, {
+      headers: {
+        "content-type": "application/json; charset=UTF-8",
+      },
+    });
+  }
+
   return new Response(
     `<body
       align="center"
@@ -49,6 +63,9 @@ function handleRequest(request) {
       </p>
       <p>
         <a href="/json">/json</a> - responds with JSON to the request.
+      </p>
+      <p>
+        <a href="/alphabet">/alphabet</a> - responds with the illustrious master alphabet to the request.
       </p>
     </body>`,
     {
