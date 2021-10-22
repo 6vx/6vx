@@ -1,5 +1,7 @@
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
 
+
+
 const masterAlphabet = [
     {"letter":"A","maxquantity":11,"baselevel":1},
     {"baselevel":3,"letter":"B","maxquantity":3},
@@ -167,9 +169,9 @@ function handleRequest(request:any) {
   if (pathname.startsWith("/bag")) {
     makeNewBag();
     // Use stringify function to convert javascript object to JSON string.
-    const json = JSON.stringify({
+    const json = JSON.stringify(
       bag
-    });
+    );
 
     return new Response(json, {
       headers: {
