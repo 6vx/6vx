@@ -29,7 +29,91 @@ const masterAlphabet = [
     {"maxquantity":2,"baselevel":11,"letter":"Z"}
 ]
 
-function handleRequest(request) {
+let colorList = [
+  "red", "green", "blue", "black", "white"
+]
+
+let bagLengthLimit:number = 50;
+
+let maxMultiplier:number = 2;
+
+let chanceLit:number = 0.1;
+
+let chanceColor:number = 0.16;
+
+let chanceLevelBumped:number = 0.5;
+
+let bag:any[] = [];
+
+function shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function chooseRandomFromArray(array: any[]) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+function chooseRandomBetweenTwoNumbers(min:any, max:any) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function fillBag(array1:any[], array2:any[]) {
+  array1.forEach(letter => {
+    let quantity = chooseRandomBetweenTwoNumbers(1, letter.maxquantity);
+    for (let i = 0; i < quantity; i++) {
+      array2.push(letter);
+    }
+  });
+}
+
+function colorDecider(chanceColor:any, colorList:any[]) {
+  let colorThisTile = false;
+  if (Math.random() < chanceColor) {
+    colorThisTile = true;
+  }
+  if (colorThisTile) {
+    let color = chooseRandomFromArray(colorList);
+    return color;
+  } else {
+    return "gray";
+  }
+}
+
+function bumpedLevelDecider(chanceLevelBumped:number, baselevel:number) {
+  let bumpedLevel = false;
+  if (Math.random() < chanceLevelBumped) {
+    bumpedLevel = true;
+  }
+  if (bumpedLevel) {
+    return baselevel + 1;
+  } else {
+    return baselevel;
+  }
+}
+
+function stampTiles(array:any[]) {
+  array.forEach(tile => {
+    tile.lit = Math.random() < chanceLit;
+    tile.color = colorDecider(chanceColor, colorList);
+    tile.level = bumpedLevelDecider(chanceLevelBumped, tile.baselevel);
+    tile.multiplier = chooseRandomBetweenTwoNumbers(1, maxMultiplier);
+  });
+} 
+
+function makeNewBag () {
+  bag = [];
+  fillBag(masterAlphabet, bag);
+  shuffleArray(bag);
+  stampTiles(bag);
+  bag.slice(0, bagLengthLimit);
+}
+
+
+
+function handleRequest(request:any) {
   const { pathname } = new URL(request.url);
 
   // Respond with HTML
@@ -79,6 +163,21 @@ function handleRequest(request) {
     });
   }
 
+  // Respond with Alphabet
+  if (pathname.startsWith("/bag")) {
+    makeNewBag();
+    // Use stringify function to convert javascript object to JSON string.
+    const json = JSON.stringify({
+      bag
+    });
+
+    return new Response(json, {
+      headers: {
+        "content-type": "application/json; charset=UTF-8",
+      },
+    });
+  }
+
   return new Response(
     `<body
       align="center"
@@ -93,6 +192,9 @@ function handleRequest(request) {
       </p>
       <p>
         <a href="/alphabet">/alphabet</a> - responds with the illustrious master alphabet to the request.
+      </p>
+      <p>
+        <a href="/bag">/bag</a> - responds with a newly shuffled bag.
       </p>
     </body>`,
     {
