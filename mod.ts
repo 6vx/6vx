@@ -46,6 +46,7 @@ let chanceColor:number = 0.16;
 let chanceLevelBumped:number = 0.5;
 
 let bag:any[] = [];
+let bag2:any[] = [];
 
 function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -107,10 +108,11 @@ function stampTiles(array:any[]) {
 
 function makeNewBag () {
   bag = [];
+  bag2 = [];
   fillBag(masterAlphabet, bag);
   shuffleArray(bag);
   stampTiles(bag);
-  bag.slice(0, bagLengthLimit);
+  bag2 = bag.slice(0, bagLengthLimit);
 }
 
 
@@ -170,7 +172,7 @@ function handleRequest(request:any) {
     makeNewBag();
     // Use stringify function to convert javascript object to JSON string.
     const json = JSON.stringify(
-      bag
+      bag2
     );
 
     return new Response(json, {
