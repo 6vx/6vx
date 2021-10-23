@@ -1,5 +1,9 @@
 ### 20211021
 
+## GLHFEV
+
+Good luck, have fun, eat veggies.
+
 ## About
 
 I'm a word game nerd (scrabble, crosswords, etc) who loves running and jumping (ultimate frisbee and volleyball <3) and making widgets on my computer the rest of the time. 

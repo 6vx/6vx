@@ -1,7 +1,6 @@
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
 
 
-
 const masterAlphabet = [
     {"letter":"A","maxquantity":11,"baselevel":1},
     {"baselevel":3,"letter":"B","maxquantity":3},
@@ -34,17 +33,11 @@ const masterAlphabet = [
 let colorList = [
   "red", "green", "blue", "black", "white"
 ]
-
 let bagLengthLimit:number = 50;
-
 let maxMultiplier:number = 2;
-
 let chanceLit:number = 0.1;
-
 let chanceColor:number = 0.16;
-
 let chanceLevelBumped:number = 0.5;
-
 let bag:any[] = [];
 
 function shuffleArray(array: any[]) {
