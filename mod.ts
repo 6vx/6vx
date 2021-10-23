@@ -111,7 +111,7 @@ function handleRequest(request:any) {
   // Respond with HTML
   if (pathname.startsWith("/html")) {
     const html = `<html>
-      <p><b>Message:</b> Hello from Deno Deploy.</p>
+      <p><b>Message:</b> Hello from the interwebs. GLHFEV.</p>
       </html>`;
 
     return new Response(html, {
@@ -130,7 +130,7 @@ function handleRequest(request:any) {
   if (pathname.startsWith("/json")) {
     // Use stringify function to convert javascript object to JSON string.
     const json = JSON.stringify({
-      message: "Hello from Deno Deploy",
+      message: "Hello from typescript <3",
     });
 
     return new Response(json, {
@@ -171,7 +171,7 @@ function handleRequest(request:any) {
 
   return new Response(
     `<body
-      align="right"
+      align="left"
       style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
     >
       <h1>6vx</h1>
