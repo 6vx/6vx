@@ -131,7 +131,6 @@ function handleRequest(request:any) {
     // Use stringify function to convert javascript object to JSON string.
     const json = JSON.stringify({
       message: "Hello from Deno Deploy",
-      other: masterAlphabet
     });
 
     return new Response(json, {
@@ -172,21 +171,21 @@ function handleRequest(request:any) {
 
   return new Response(
     `<body
-      align="center"
+      align="right"
       style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
     >
-      <h1>Return JSON and/or HTML Example</h1>
+      <h1>6vx</h1>
       <p>
-        <a href="/html">/html</a> - responds with HTML to the request.
+        <a href="/html">/html</a> - responds with HTML
       </p>
       <p>
-        <a href="/json">/json</a> - responds with JSON to the request.
+        <a href="/json">/json</a> - responds with JSON
       </p>
       <p>
-        <a href="/alphabet">/alphabet</a> - responds with the illustrious master alphabet to the request.
+        <a href="/alphabet">/alphabet</a> - responds with the illustrious master alphabet
       </p>
       <p>
-        <a href="/bag">/bag</a> - responds with a newly shuffled bag.
+        <a href="/bag">/bag</a> - responds with a newly shuffled bag
       </p>
     </body>`,
     {
