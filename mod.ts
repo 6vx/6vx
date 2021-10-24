@@ -111,7 +111,7 @@ function handleRequest(request:any) {
   // Respond with HTML
   if (pathname.startsWith("/html")) {
     const html = `<html>
-      <p><b>Message:</b> Hello from the interwebs. GLHFEV.</p>
+      <p><b>Message:</b> Hello from the internet. GLHFEV.</p>
       </html>`;
 
     return new Response(html, {

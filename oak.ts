@@ -10,7 +10,7 @@ books.set("1", {
 const router = new Router();
 router
   .get("/", (context) => {
-    context.response.body = "Hello world!";
+    context.response.body = "Hiya.";
   })
   .get("/book", (context) => {
     context.response.body = Array.from(books.values());
@@ -25,4 +25,5 @@ const app = new Application();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-await app.listen({ port: 8000 });
+console.log("I wait, master!")
+await app.listen({ port: 8080 });
