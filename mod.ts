@@ -1,9 +1,21 @@
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
 
-const masterAlphabet = [
-    {"letter":"A","maxquantity":11,"baselevel":1},
+console.log(crypto.randomUUID());
+
+interface Tile {
+  uuid?: string;
+  letter: string;
+  maxquantity?: number;
+  baselevel?: number;
+  level?: number;
+  color?: string;
+  multiplier?: number;
+}
+
+let masterAlphabet = [
+    {"letter":"A","maxquantity":11,"baselevel":1,},
     {"baselevel":3,"letter":"B","maxquantity":3},
-    {"maxquantity":"3","baselevel":3,"letter":"C"},
+    {"maxquantity":3,"baselevel":3,"letter":"C"},
     {"maxquantity":6,"letter":"D","baselevel":3},
     {"maxquantity":14,"baselevel":1,"letter":"E"},
     {"maxquantity":3,"letter":"F","baselevel":4},
@@ -44,6 +56,7 @@ function shuffleArray(array: any[]) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
 }
 
 function chooseRandomFromArray(array: any[]) {
@@ -54,56 +67,41 @@ function chooseRandomBetweenTwoNumbers(min:any, max:any) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function fillBag(array1:any[], array2:any[]) {
-  array1.forEach(letter => {
-    let quantity = chooseRandomBetweenTwoNumbers(1, letter.maxquantity);
-    for (let i = 0; i < quantity; i++) {
-      array2.push(letter);
-    }
-  });
-}
-
-function colorDecider(chanceColor:any, colorList:any[]) {
-  let colorThisTile = false;
+function assignColor() {
+  // if random number is less than chancecolor, assign color.
   if (Math.random() < chanceColor) {
-    colorThisTile = true;
-  }
-  if (colorThisTile) {
-    let color = chooseRandomFromArray(colorList);
-    return color;
+    return chooseRandomFromArray(colorList);
   } else {
     return "gray";
   }
 }
 
-function bumpedLevelDecider(chanceLevelBumped:number, baselevel:number) {
-  let bumpedLevel = false;
+function assignLevel(baseLevel:number) {
+  let level = baseLevel;
   if (Math.random() < chanceLevelBumped) {
-    bumpedLevel = true;
+    level += 1;
   }
-  if (bumpedLevel) {
-    return baselevel + 1;
-  } else {
-    return baselevel;
-  }
+  return level;
 }
 
-function stampTiles(array:any[]) {
-  array.forEach(tile => {
-    tile.lit = Math.random() < chanceLit;
-    tile.color = colorDecider(chanceColor, colorList);
-    tile.level = bumpedLevelDecider(chanceLevelBumped, tile.baselevel);
-    tile.multiplier = chooseRandomBetweenTwoNumbers(1, maxMultiplier);
+function updateBag () {
+  masterAlphabet.forEach(letter => {
+    let newTile:Tile = letter
+    for (let i = 0; i < chooseRandomBetweenTwoNumbers(1, letter.maxquantity); i++) {
+      newTile.uuid = crypto.randomUUID();
+      newTile.multiplier = chooseRandomBetweenTwoNumbers(1, maxMultiplier);
+      newTile.color = assignColor();
+      newTile.level = assignLevel(letter.baselevel);
+      bag.push({...newTile});
+    }
   });
-} 
-
-function makeNewBag () {
-  bag = [];
-  fillBag(masterAlphabet, bag);
   shuffleArray(bag);
-  stampTiles(bag);
-  bag = bag.slice(0, bagLengthLimit);
 }
+
+updateBag();
+
+// ROUTES BELOW AND STUFF THANKS 
+
 
 function handleRequest(request:any) {
   const { pathname } = new URL(request.url);
@@ -156,7 +154,6 @@ function handleRequest(request:any) {
 
   // Respond with Bag
   if (pathname.startsWith("/bag")) {
-    makeNewBag();
     // Use stringify function to convert javascript object to JSON string.
     const json = JSON.stringify(
       bag

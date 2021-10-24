@@ -1,5 +1,12 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
+import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
+
+// import * as playfabWebSdk from 'https://cdn.skypack.dev/playfab-web-sdk';
+
+console.log(uuidv4());
+console.log("Help meeeeee", playfabWebSdk);
+
 const books = new Map<string, any>();
 books.set("1", {
   id: "1",
