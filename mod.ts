@@ -9,6 +9,7 @@ interface Tile {
   level?: number;
   color?: string;
   multiplier?: number;
+  isLit?: boolean;
 }
 
 let masterAlphabet = [
@@ -91,10 +92,16 @@ function updateBag () {
       newTile.multiplier = chooseRandomBetweenTwoNumbers(1, maxMultiplier);
       newTile.color = assignColor();
       newTile.level = assignLevel(letter.baselevel);
+      newTile.isLit = Math.random() < chanceLit;
       bag.push({...newTile});
     }
   });
   shuffleArray(bag);
+  // pop tiles until bag is equal to bagLengthLimit
+  while (bag.length > bagLengthLimit) {
+    bag.pop();
+  }
+
 }
 
 updateBag();
