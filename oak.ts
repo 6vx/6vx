@@ -1,5 +1,7 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
+
+
 interface NPC {
   name: string;
   age: number;
@@ -82,8 +84,9 @@ function bootMap() {
   createMap();
   addLocations();
 }
-
-bootMap();
+// turning this off for now. Because it's too heavy to run on a deno deploy
+// needs an actual server to run on. Very fucking rad. Will update every time I add new content. So. Sick.
+// bootMap();
 
 // find mastermap location where x is 241 and y is 250
 // and console.log the place
