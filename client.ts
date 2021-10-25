@@ -1,3 +1,2 @@
-export function sayHi() {
-    console.log('Hi');
-}
+// Assume that a bag has been retrieved and is usable.
+

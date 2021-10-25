@@ -1,5 +1,5 @@
+// Main deno deploy test script. Really impressed. Will keep using.
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
-// console.log(crypto.randomUUID());
 
 interface Tile {
   uuid?: string;
@@ -41,15 +41,27 @@ let masterAlphabet = [
     {"maxquantity":2,"baselevel":11,"letter":"Z"}
 ]
 
-let colorList = [
-  "red", "green", "blue", "black", "white"
-]
-let bagLengthLimit:number = 50;
-let maxMultiplier:number = 2;
-let chanceLit:number = 0.1;
-let chanceColor:number = 0.16;
-let chanceLevelBumped:number = 0.5;
-let bag:any[] = [];
+interface BagSpawnOptions {
+  colorList: string[];
+  bagLengthLimit: number;
+  maxMultiplier: number;
+  chanceLit: number;
+  chanceColor: number;
+  chanceLevelBumped: number;
+}
+
+let options:BagSpawnOptions = {
+  colorList: [
+      "red", "green", "blue", "black", "white"
+  ],
+  bagLengthLimit: 50,
+  maxMultiplier: 2,
+  chanceLit: 0.1,
+  chanceColor: 0.16,
+  chanceLevelBumped: 0.5,
+}
+
+let bag:Tile[] = [];
 
 function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -69,8 +81,8 @@ function chooseRandomBetweenTwoNumbers(min:any, max:any) {
 
 function assignColor() {
   // if random number is less than chancecolor, assign color.
-  if (Math.random() < chanceColor) {
-    return chooseRandomFromArray(colorList);
+  if (Math.random() < options.chanceColor) {
+    return chooseRandomFromArray(options.colorList);
   } else {
     return "gray";
   }
@@ -78,7 +90,7 @@ function assignColor() {
 
 function assignLevel(baseLevel:number) {
   let level = baseLevel;
-  if (Math.random() < chanceLevelBumped) {
+  if (Math.random() < options.chanceLevelBumped) {
     level += 1;
   }
   return level;
@@ -89,10 +101,10 @@ function updateBag () {
     let newTile:Tile = letter
     for (let i = 0; i < chooseRandomBetweenTwoNumbers(1, letter.maxquantity); i++) {
       newTile.uuid = crypto.randomUUID();
-      newTile.multiplier = chooseRandomBetweenTwoNumbers(1, maxMultiplier);
+      newTile.multiplier = chooseRandomBetweenTwoNumbers(1, options.maxMultiplier);
       newTile.color = assignColor();
       newTile.level = assignLevel(letter.baselevel);
-      newTile.isLit = Math.random() < chanceLit;
+      newTile.isLit = Math.random() < options.chanceLit;
       bag.push({...newTile});
     }
   });

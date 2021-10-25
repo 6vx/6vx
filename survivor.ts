@@ -1,3 +1,6 @@
+// Just goofin' around to see what sorts of nonsense I can write using Deno.
+// Love the native typescript, being able to just spam interfaces off the hop.
+// And can't argue with deploying instantly via github with offline dev env. 
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
 
 // This script is going to handle the survivor pool in it's entirety.
