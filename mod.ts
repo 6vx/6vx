@@ -101,7 +101,6 @@ function updateBag () {
   while (bag.length > bagLengthLimit) {
     bag.pop();
   }
-
 }
 
 updateBag();
