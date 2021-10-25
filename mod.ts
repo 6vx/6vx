@@ -1,6 +1,5 @@
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
-
-console.log(crypto.randomUUID());
+// console.log(crypto.randomUUID());
 
 interface Tile {
   uuid?: string;

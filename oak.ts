@@ -1,11 +1,98 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
-import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
+interface NPC {
+  name: string;
+  age: number;
+  occupation: string;
+  wares?: any[];
+  story?: string;
+}
 
-// import * as playfabWebSdk from 'https://cdn.skypack.dev/playfab-web-sdk';
+interface Place {
+  name: string;
+  x_min: number;
+  x_max: number;
+  y_min: number;
+  y_max: number;
+  hasStore: boolean;
+  hasNPC: boolean;
+  NPC?: NPC;
+}
 
-console.log(uuidv4());
-console.log("Help meeeeee", playfabWebSdk);
+interface Space {
+  x: number;
+  y: number;
+  place?: Place,
+  highScore?: number,
+}
+
+let mapAttributes = {
+  x_min: 0,
+  x_max: 500,
+  y_min: 0,
+  y_max: 500,
+}
+
+let masterMap:Space[] = [
+
+]
+
+let locations:Place[] = [
+  {
+    name: "Forest Camp",
+    x_min: 240,
+    x_max: 250,
+    y_min: 245,
+    y_max: 255,
+    hasStore: true,
+    hasNPC: true,
+    NPC: {
+      name: "Warren",
+      age: 35,
+      occupation: "Forest Ranger",
+    }
+  }
+]
+
+function createMap() {
+  for (let x = 0; x < mapAttributes.x_max; x++) {
+    for (let y = 0; y < mapAttributes.y_max; y++) {
+      masterMap.push({x: x, y: y})
+    }
+  }
+}
+
+function addLocations() {
+  locations.forEach(location => {
+    for (let x = location.x_min; x < location.x_max; x++) {
+      for (let y = location.y_min; y < location.y_max; y++) {
+        // fine master map entry where x and y are equal to location x and y
+        // then assign location as place
+        masterMap.find(entry => {
+          if (entry.x === x && entry.y === y) {
+            entry.place = location
+          }
+        })
+      }
+    }
+  })
+}
+
+function bootMap() {
+  createMap();
+  addLocations();
+}
+
+bootMap();
+
+// find mastermap location where x is 241 and y is 250
+// and console.log the place
+console.log(masterMap.find(entry => {
+  if (entry.x === 241 && entry.y === 250) {
+    return entry.place
+  }
+}))
+
 
 const books = new Map<string, any>();
 books.set("1", {
@@ -25,6 +112,15 @@ router
   .get("/book/:id", (context) => {
     if (context.params && context.params.id && books.has(context.params.id)) {
       context.response.body = books.get(context.params.id);
+    }
+  })
+  .get("/location/:x/:y", (context) => {
+    if (context.params && context.params.x && context.params.y) {
+      context.response.body = masterMap.find(entry => {
+        if (entry.x === Number(context.params.x) && Number(context.params.y) === entry.y) {
+          return entry.place
+        }
+      });
     }
   });
 
