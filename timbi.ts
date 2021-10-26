@@ -20,7 +20,7 @@ interface BagSpawnOptions {
 
 let options:BagSpawnOptions = {
     colorList: [
-        "red", "green", "blue", "black", "white"
+        "red", "green", "blue", "black", "white", "gray"
     ],
     bagLengthLimit: 50,
     maxMultiplier: 2,
@@ -28,3 +28,4 @@ let options:BagSpawnOptions = {
     chanceColor: 0.16,
     chanceLevelBumped: 0.5,
 }
+

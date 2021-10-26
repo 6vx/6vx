@@ -1,6 +1,9 @@
 // Main deno deploy test script. Really impressed. Will keep using.
 import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
 
+// Defining the tile you pick up!
+// Starting early on making them cray and unique
+// They'll only get crazier.
 interface Tile {
   uuid?: string;
   letter: string;
@@ -12,6 +15,7 @@ interface Tile {
   isLit?: boolean;
 }
 
+// A root alphabet that limits the quantity of letters and their base level.
 let masterAlphabet = [
     {"letter":"A","maxquantity":11,"baselevel":1,},
     {"baselevel":3,"letter":"B","maxquantity":3},
@@ -63,6 +67,8 @@ let options:BagSpawnOptions = {
 
 let bag:Tile[] = [];
 
+
+// using to shuffle the bag after filling it
 function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -71,14 +77,17 @@ function shuffleArray(array: any[]) {
   return array;
 }
 
+// using to choose a color, if the tile happens to be colored.
 function chooseRandomFromArray(array: any[]) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
+// using to choose the quantity of tiles added to bag
 function chooseRandomBetweenTwoNumbers(min:any, max:any) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// using to decide if a tile is colored or not
 function assignColor() {
   // if random number is less than chancecolor, assign color.
   if (Math.random() < options.chanceColor) {
@@ -88,6 +97,7 @@ function assignColor() {
   }
 }
 
+// using to decide if a tile gets a level bump
 function assignLevel(baseLevel:number) {
   let level = baseLevel;
   if (Math.random() < options.chanceLevelBumped) {
@@ -95,6 +105,9 @@ function assignLevel(baseLevel:number) {
   }
   return level;
 }
+
+// this function takes the alphabet and spits out a colored, boosted, 
+// and lit bag of tiles to be used as a bag. 
 
 function updateBag () {
   masterAlphabet.forEach(letter => {
@@ -105,9 +118,15 @@ function updateBag () {
       newTile.color = assignColor();
       newTile.level = assignLevel(letter.baselevel);
       newTile.isLit = Math.random() < options.chanceLit;
+      // this is my first use of the spread operator.
+      // if you don't dereference your array you end up
+      // applying your changes to each instance of the 
+      // original alphabet letters, since the computer 
+      // thinks they're all the same. 
       bag.push({...newTile});
     }
   });
+  // SHAKE IT BABY!
   shuffleArray(bag);
   // pop tiles until bag is equal to bagLengthLimit
   while (bag.length > bagLengthLimit) {
@@ -115,6 +134,7 @@ function updateBag () {
   }
 }
 
+// Execute the shebang for delivery. 
 updateBag();
 
 // ROUTES BELOW AND STUFF THANKS 
