@@ -129,7 +129,7 @@ function updateBag () {
   // SHAKE IT BABY!
   shuffleArray(bag);
   // pop tiles until bag is equal to bagLengthLimit
-  while (bag.length > bagLengthLimit) {
+  while (bag.length > options.bagLengthLimit) {
     bag.pop();
   }
 }

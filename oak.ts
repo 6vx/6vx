@@ -1,3 +1,8 @@
+// run locally using 
+// deno run --allow-net=:8080 --watch  oak.ts
+// --watch tag watches for changes and hot reloads
+// --allow-net:8080 allows for localhost:8080 connections
+
 // I've grown attached to the idea of this map, and how it's structured. 
 // This way of doing things, though, it too heavy to live in a 
 // serverless function. 
@@ -90,7 +95,8 @@ function bootMap() {
 }
 // turning this off for now. Because it's too heavy to run on a deno deploy
 // needs an actual server to run on. Very fucking rad. Will update every time I add new content. So. Sick.
-bootMap();
+
+// bootMap();
 
 // find mastermap location where x is 241 and y is 250
 // and console.log the place

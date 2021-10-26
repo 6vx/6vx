@@ -59,6 +59,11 @@ interface Space {
     leaderboard?: string;
 }
 
+interface Level {
+    level: number;
+    xpRequired: number;
+}
+
 let mapAttributes = {
     x_min: 0,
     x_max: 500,
@@ -107,3 +112,26 @@ let places:Place[] = [
       }
     }
   ]
+
+let levels:Level[] = [
+    { level: 1, xpRequired: 0 },
+    { level: 2, xpRequired: 500 },
+    { level: 3, xpRequired: 1500 },
+    { level: 4, xpRequired: 3750 },
+    { level: 5, xpRequired: 8000 }, 
+    { level: 6, xpRequired: 14000 },
+    { level: 7, xpRequired: 23000 },
+    { level: 8, xpRequired: 34000 },
+    { level: 9, xpRequired: 44000 },
+    { level: 10, xpRequired: 55000 },
+    { level: 11, xpRequired: 72000 },
+    { level: 12, xpRequired: 90000 },
+    { level: 13, xpRequired: 110000 },
+    { level: 14, xpRequired: 140000 },
+    { level: 15, xpRequired: 176000 },
+    { level: 16, xpRequired: 275000 },
+    { level: 17, xpRequired: 400000 },
+    { level: 18, xpRequired: 535000 },
+    { level: 19, xpRequired: 700000 },
+    { level: 20, xpRequired: 900000 }
+]
