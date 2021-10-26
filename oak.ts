@@ -1,3 +1,9 @@
+// I've grown attached to the idea of this map, and how it's structured. 
+// This way of doing things, though, it too heavy to live in a 
+// serverless function. 
+// Will have to add in a way to write to an object, then I can spit it through
+// a static site generator and have it be a static site.
+
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
 interface NPC {
