@@ -32,21 +32,147 @@ let weeks = 14;
 // Current total of castaway's points are retrieved from a google spreadsheet.
 // Players are ranked by how many points their roster of castaway's has.
 
-let playerList = ["Becky","Bonnie","Chad","Chelsea","Christie","Ciara","Cole T","Courtney","Dom","DJ",
-                    "Greg","Jace","Jenny","Jess G","Jess T","Kendal","Kristen","Kerri","Lainie","Lisa",
-                    "MaryAnn","Mason","Mike J","Mimi","Nick","Rob","Ryan","Sheila","Steph","Tim","Ted","Theresa"]
 let castawayList = ["Ricard","Shantel","Jairus","Genie","Brad","Sydney","Evvie","Danny","Deshawn","David",
                     "Eric","Erika","Heather","Liana","Naseer","Sara","Tiffany","Xander"]
-
+let picks = [
+  {
+  name: "Becky",
+  roster: [ ]
+  },
+  {
+  name: "Bonnie",
+  roster: [ ]
+  },
+  {
+  name: "Chad",
+  roster: [ ]
+  },
+  {
+  name: "Chelsea",
+  roster: [ ]
+  },
+  {
+  name: "Christie",
+  roster: [ ]
+  },
+  {
+  name: "Ciara",
+  roster: [ ]
+  },
+  {
+  name: "Cole T",
+  roster: [ ]
+  },
+  {
+  name: "Courtney",
+  roster: [ ]
+  },
+  {
+  name: "Dom",
+  roster: [ ]
+  },
+  {
+  name: "DJ",
+  roster: [ ]
+  },
+  {
+  name: "Greg",
+  roster: [ ]
+  },
+  {
+  name: "Jace",
+  roster: [ ]
+  },
+  {
+  name: "Jenny",
+  roster: [ ]
+  },
+  {
+  name: "Jess G",
+  roster: [ ]
+  },
+  {
+  name: "Jess T",
+  roster: [ ]
+  },
+  {
+  name: "Kendal",
+  roster: [ ]
+  },
+  {
+  name: "Kristen",
+  roster: [ ]
+  },
+  {
+  name: "Kerri",
+  roster: [ ]
+  },
+  {
+  name: "Lainie",
+  roster: [ ]
+  },
+  {
+  name: "Lisa",
+  roster: [ ]
+  },
+  {
+  name: "MaryAnn",
+  roster: [ ]
+  },
+  {
+  name: "Mason",
+  roster: [ ]
+  },
+  {
+  name: "Mike J",
+  roster: [ ]
+  },
+  {
+  name: "Mimi",
+  roster: [ ]
+  },
+  {
+  name: "Nick",
+  roster: [ ]
+  },
+  {
+  name: "Rob",
+  roster: [ ]
+  },
+  {
+  name: "Ryan",
+  roster: [ ]
+  },
+  {
+  name: "Sheila",
+  roster: [ ]
+  },
+  {
+  name: "Steph",
+  roster: [ ]
+  },
+  {
+  name: "Tim",
+  roster: [ "Sydney", "Evvie", "Ricard", "Xander", "Shantel", "Erika" ]
+  },
+  {
+  name: "Ted",
+  roster: [ ]
+  },
+  {
+  name: "Theresa",
+  roster: [ ]
+  }
+  ]
 
 // For each playerList create a player and add it to the players array.
-for (let i = 0; i < playerList.length; i++) {
-    let player: Player = {
-        name: playerList[i],
-        roster: []
-    }
-    players.push(player);
-}
+// for (let i = 0; i < playerList.length; i++) {
+//     let player: Player = {
+//         name: playerList[i],
+//         roster: []
+//     }
+//     players.push(player);
+// }
 
 // For each castawayList create a castaway and add it to the castaways array.
 for (let i = 0; i < castawayList.length; i++) {
@@ -57,6 +183,26 @@ for (let i = 0; i < castawayList.length; i++) {
     }
     castaways.push(castaway);
 }
+
+// For each name in picks create a player and add it to the players array.
+for (let i = 0; i < picks.length; i++) {
+  let player: Player = {
+      name: picks[i].name,
+      roster: []
+  }  
+  players.push(player);
+}
+
+// Dunno why this isn't working. Says that the object is possibly undefined. 
+// For each roster in picks array add the castaways to the players roster
+for (let i = 0; i < picks.length; i++) {
+  for (let j = 0; j < picks[i].roster.length; j++) {
+    let selection:Castaway;
+    selection.name = (picks[i].roster[j]);
+    players[i].roster.push(selection);
+  }
+}
+
 
 
 function handleRequest(request:any) {
