@@ -216,5 +216,5 @@ const app = new Application();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-console.log("I wait, master!")
+console.log("Yes?")
 await app.listen({ port: 8080 });
