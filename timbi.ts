@@ -282,19 +282,45 @@ function bootMap() {
 }
   
 // This gets really intense if you've got the grid over 500x500. Watch out.
-bootMap();
-function writeJson(path: string, data: object): string {
-    try {
-      Deno.writeTextFileSync(path, JSON.stringify(data));
+// bootMap();
+// function writeJson(path: string, data: object): string {
+//     try {
+//       Deno.writeTextFileSync(path, JSON.stringify(data));
   
-      return "Written to " + path;
-    } catch (e) {
-      return e.message;
-    }
-  }
-console.log(writeJson("./map.json", masterMap));
+//       return "Written to " + path;
+//     } catch (e) {
+//       return e.message;
+//     }
+//   }
+// console.log(writeJson("./map.json", masterMap));
 
+// now i want to write the gameplay pipeline
+// that is, how is a play being handled as the turn progresses?
+// i want a stack experience like Magic so I can understand it.
 
+// declaring who is playing the turn
+interface Player {
+  id: string,
+  highScore?: number,
+  bestPlay?: Turn,
+}
+
+// declaring what a turn is and what is has
+interface Turn {
+  player : Player,
+  multiplier : number,
+  score : number,
+  playlist : Play[],
+}
+
+// declaring what a play looks like
+interface Play {
+  word : Tile[],
+  score? : number,
+  multiplier? : number,
+  color? : string,
+  level? : number,
+}
 
 
 
