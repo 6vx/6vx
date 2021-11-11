@@ -216,14 +216,11 @@ async function handleRequest(request:any) {
 
   return new Response(
     `<html>
-    <head>
+  <head>
     <link rel="stylesheet" href="style.css" />
   </head>
     
-    <body
-      align="left"
-      style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
-    >
+    <body>
       <h1>6vx</h1>
       <p>
         <a href="/html">/html</a> - responds with HTML
