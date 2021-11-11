@@ -140,7 +140,7 @@ updateBag();
 // ROUTES BELOW AND STUFF THANKS 
 
 
-function handleRequest(request:any) {
+async function handleRequest(request:any) {
   const { pathname } = new URL(request.url);
 
   if (pathname.startsWith("/style.css")) {
@@ -150,7 +150,7 @@ function handleRequest(request:any) {
     return new Response(file, {
       headers: {
         "content-type": "text/css",
-      };
+      }
     });
   }
 
