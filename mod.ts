@@ -215,7 +215,8 @@ function handleRequest(request:any) {
   }
 
   return new Response(
-    `<head>
+    `<html>
+    <head>
     <link rel="stylesheet" href="style.css" />
   </head>
     
@@ -236,7 +237,8 @@ function handleRequest(request:any) {
       <p>
         <a href="/bag">/bag</a> - responds with a newly shuffled bag
       </p>
-    </body>`,
+    </body>
+    </html>`,
     {
       headers: {
         "content-type": "text/html; charset=UTF-8",
