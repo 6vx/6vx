@@ -9,6 +9,10 @@
 // Will have to add in a way to write to an object, then I can spit it through
 // a static site generator and have it be a static site.
 
+// Why don't I just spit it through my own solution? Send each space through a 
+// json writer individually, that way I can just toss the map in an easily accessible
+// static bucket on AWS and forget about all this nonsense. 
+
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
 interface NPC {

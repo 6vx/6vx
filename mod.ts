@@ -143,6 +143,17 @@ updateBag();
 function handleRequest(request:any) {
   const { pathname } = new URL(request.url);
 
+  if (pathname.startsWith("/style.css")) {
+    // Read the style.css file from the file system.
+    const file = await Deno.readFile("./style.css");
+    // Respond to the request with the style.css file.
+    return new Response(file, {
+      headers: {
+        "content-type": "text/css",
+      };
+    });
+  }
+
   // Respond with HTML
   if (pathname.startsWith("/html")) {
     const html = `<html>
@@ -204,7 +215,11 @@ function handleRequest(request:any) {
   }
 
   return new Response(
-    `<body
+    `<head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+    
+    <body
       align="left"
       style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
     >
