@@ -1,4 +1,4 @@
-### 20211021
+### 20230720
 
 ## GLHFEV
 
@@ -6,7 +6,8 @@ Good luck, have fun, eat veggies.
 
 ## About
 
-I'm a word game nerd (scrabble, crosswords, etc) who loves running and jumping (ultimate frisbee and volleyball <3) and making widgets on my computer the rest of the time. 
+Canadian widget artificer, xoloitzcuintli caretaker and jumping enthusiast.
 
+- Like: word games, frisbee, volleyball, waboba
 - Moderate experience: Web/HTML/CSS/JS/TS/Svelte/CICD/AWS/Git/Powershell/BaaS
 - Some experience: Azure/Vue/Node/Deno/Express/Bash/Android
